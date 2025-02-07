@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 200vh;
+}
+.slider__btnGroup {
+    position: relative;
+    bottom: 170px;
+}
+.name-inp {
+    position: absolute;
+    top: 22px;
+    left: 25px;
+    transition: all 0.3s ease;
+    color: gray;
+    background-color: white;  
+    padding: 0 5px;  
+}
+.name-text:focus + .name-inp,
+.name-text:not(:placeholder-shown) + .name-inp {
+    top: 1px;  
+    left: 30px;
+    font-size: 14px;
+    color: #007bff;
+    background-color: white;  
+    padding: 0 5px; 
+}
+
+.surname-inp {
+    background-color: white;
+    color: gray;
+    position: absolute;
+    left: 30px;
+    top: 76px;
+    transition: all 0.3s ease;
+    padding: 0 5px;
+}
+.surname-text:focus + .surname-inp,
+.surname-text:not(:placeholder-shown) + .surname-inp {
+    top: 58px;
+    left: 30px;
+    font-size: 14px;
+    color: #007bff;
+    background-color: white;
+    padding: 0 5px;
+}
+
+.course-inp {
+    position: absolute;
+    top: 130px;
+    left: 30px;
+    color: grey;
+    transition: all .3s ease;
+    background-color: #fff;
+    padding: 0 5px;
+}
+.course-text:focus + .course-inp,
+.course-text:not(:placeholder-shown) + .course-inp {
+    color: #007bff;
+    background-color: white;
+    top: 112px;
+    left: 30px;
+    font-size: 14px;
+    padding: 0 5px;
+}
+.ModalAli {
+    display: none;
+    background-color: #0000007c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+}
+.alimodal {
+    background-color: #fff;
+    margin: 0 auto;
+    width: 60%;
+    border-radius: 10px;
+    height: 80vh;
+    margin-top: 5%;
+    z-index: 0;
+    
+}
+.modalPupilAli {
+    display: none;
+    margin: 0 auto;
+    position: absolute;
+    background-color: #fff;
+    width: 60%;
+    height: 80vh;
+    border-radius: 10px;
+    bottom: 50%;
+    z-index: 1;
+    top: 15%;
+    margin-left: 20%;
+}
+.ValiModal {
+    display: none;
+    background-color: #0000007c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+}
+.modalPupilVali {
+    display: none;
+    margin: 0 auto;
+    position: absolute;
+    background-color: #fff;
+    width: 60%;
+    height: 80vh;
+    border-radius: 10px;
+    bottom: 50%;
+    z-index: 1;
+    top: 15%;
+    margin-left: 20%;
+}
+.ModalGani {
+    display: none;
+    background-color: #0000007c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+}
+.modalPupilGani {
+    display: none;
+    margin: 0 auto;
+    position: absolute;
+    background-color: #fff;
+    width: 60%;
+    height: 80vh;
+    border-radius: 10px;
+    bottom: 50%;
+    z-index: 1;
+    top: 15%;
+    margin-left: 20%;
+}
+.modalBlock {
+    display: block;
+}
