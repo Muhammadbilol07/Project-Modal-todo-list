@@ -25,6 +25,7 @@ let elModalValiCloseBtn = document.querySelector(".backModalBtnVali");
 let elModalPupilValiBtn = document.querySelector(".ModalPupilValiBtn");
 let elModalPupilVali = document.querySelector(".modalPupilVali")
 let elModalPupilValiBtnBack = document.querySelector(".backModalPupilBtnVali");
+let elPupilListVali = document.querySelector(".ValiPupilList");
 
 let elModalGaniBtn = document.querySelector(".ModalGaniButton");
 let elModalGani = document.querySelector(".ModalGani");
@@ -32,6 +33,7 @@ let elModalGaniCloseBtn = document.querySelector(".backModalBtnGani");
 let elModalPupilGaniBtn = document.querySelector(".ModalPupilGaniBtn");
 let elModalPupilGani = document.querySelector(".modalPupilGani");
 let elModalPupilGaniBtnBack = document.querySelector(".backModalPupilBtnGani");
+let elPupilListGani = document.querySelector(".GaniPupilList")
 
 function elChangeSlider(){
     if(idx > elSliderBox.length - 1){
@@ -108,21 +110,35 @@ elModalPupilGaniBtnBack.addEventListener("click", (e) => {
 elForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    formArr.push({
+    let newObj = {
         Name: elName.value,
         Surname: elSurname.value,
-        Course: elCourseType.value
-    });
-
-    elName.value = "";
-    elSurname.value = "";
-    elCourseType.value = "";
+        Course: elCourseType.value.toLowerCase()
+    }
     
-    FormArrList = formArr.map((item) => {
-        return `<li class="card px-3 w-100 mb-3">
-        <p class="fs-3 mt-2 d-flex align-items-center justify-content-between">${item.Surname} ${item.Name} <span class=" float-end bg-info badge">${item.Course}</span></p>
-        </li>`
-    });
+    if(["english", "russian", "it"].includes(newObj.Course)){
+        formArr.push(newObj)
+        
+        let filtered = formArr.filter(item => item.Course === newObj.Course);
 
-    elPupilListAli.innerHTML = FormArrList.join("");
-})
+        FormArrList = filtered.map((item) => {
+            return `<li class="card px-3 w-100 mb-3">
+                <p class="fs-3 mt-2 d-flex align-items-center justify-content-between">${item.Surname} ${item.Name} <span class=" float-end bg-info badge">${item.Course.toUpperCase()}</span></p>
+                </li>`
+        }).join('')
+
+        if(newObj.Course === "english"){
+            elPupilListAli.innerHTML = FormArrList
+        } else if(newObj.Course === "russian"){
+            elPupilListVali.innerHTML = FormArrList
+        } else if(newObj.Course === "it"){
+            elPupilListGani.innerHTML = FormArrList
+        }
+
+        elName.value = "";
+        elSurname.value = "";
+        elCourseType.value = "";
+    } else {
+        alert("Siz Bizda Yoq Kursni Kiritdingiz, Iltimos Faqat English, Russian yoki IT Kursini Kiriting!")
+    }
+});
